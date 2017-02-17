@@ -1,0 +1,27 @@
+<html>
+<head>
+  <script type="text/javascript" src="http://cloud.boltiot.com/static/js/boltCommands.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+	var isOn = False;
+    setKey('{{ApiKey}}','{{Name}}');
+	setDebug(False);
+	function changeImage(){
+		if(isOn == True){
+			document.getElementById('myImage').src='http://www.clker.com/cliparts/0/X/y/m/X/2/grey-led-off-hi.png';
+			isOn = False;
+		}
+		else{
+			document.getElementById('myImage').src='http://www.clker.com/cliparts/5/I/2/4/C/X/red-led-off-hi.png';
+			isOn = True;
+		}
+	}
+</script>
+<center>
+  <button onclick="digitalWrite(0, HIGH); changeImage();" style="height:50px;width:75px">ON</button>
+  <img id="myImage" src="http://www.clker.com/cliparts/0/X/y/m/X/2/grey-led-off-hi.png" height="200" width="200">
+  <button onclick="digitalWrite(0, LOW); changeImage();" style="height:50px;width:75px">OFF</button> 
+</center>
+</body>
+</html>
